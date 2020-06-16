@@ -77,7 +77,7 @@ class Sketchbook(db.Model):
         "Goal", back_populates="goalstosketchbooks")
 
 
-class Goal(db.model):
+class Goal(db.Model):
     __tablename__ = "goals"
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -85,11 +85,24 @@ class Goal(db.model):
         "sketchbooks.id"), nullable=False)
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(1000))
-    target = db.Column(db.integer, nullable=False)
+    target = db.Column(db.Integer, nullable=False)
     targetdate = db.Column(db.DateTime, nullable=False)
-    datapoints = db.Column(db.Integer[])
-    datapointsdate = db.Column(db.DateTime[])
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+                          nullable=False)
 
     goalstousers = db.relationship("User", back_populates="userstogoals")
     goalstosketchbooks = db.relationship(
         "Sketchbook", back_populates="sketchbookstogoals")
+    goaltodatapoint = db.relationship(
+        "Datapoint", back_populates="datapointtogoal")
+
+
+class Datapoint(db.Model):
+    __tablename__ = "datapoints"
+    id = db.Column(db.Integer, primary_key=True)
+    goal_id = db.Column(db.Integer, db.ForeignKey("goals.id"), nullable=False)
+    value = db.Column(db.Integer, nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+                          nullable=False)
+
+    datapointtogoal = db.relationship("Goal", back_populates="goaltodatapoint")
