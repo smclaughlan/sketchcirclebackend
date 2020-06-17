@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from werkzeug.security import generate_password_hash
-from app.models import User, db
+from app.models import User, Sketchbook, db
 import jwt
 from ..config import Configuration
 from ..util import token_required
@@ -16,6 +16,10 @@ def registration():
                    email=data['email'],
                    hashed_password=hashedPassword)
     db.session.add(newUser)
+    db.session.commit()
+    newSketchbook = Sketchbook(owner_id=newUser.id,
+                               title=f"{newUser.username}'s sketchbook")
+    db.session.add(newSketchbook)
     db.session.commit()
     token = jwt.encode({'user_id': newUser.id}, Configuration.SECRET_KEY)
     return {
