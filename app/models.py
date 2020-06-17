@@ -14,8 +14,8 @@ class User(db.Model):
     hashed_password = db.Column(db.Text, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
 
-    follower = db.relationship(
-        "Follow", back_populates="follower", foreign_keys='Follow.follower_id')
+    usertofollow = db.relationship(
+        "Follow", back_populates="followtouser")
 
     usertopost = db.relationship("Post", back_populates="posttouser")
     usertosketchbook = db.relationship(
@@ -24,14 +24,14 @@ class User(db.Model):
 
     @property
     def password(self):
-        return hashed_password
+        return self.hashed_password
 
     @password.setter
     def password(self, password):
         self.hashed_password = generate_password_hash(password)
 
-    def check_password(self, password):
-        return check_password_hash(self.hashed_password, password)
+    def check_password(self, testpass):
+        return check_password_hash(self.hashed_password, testpass)
 
 
 class Follow(db.Model):
@@ -44,7 +44,7 @@ class Follow(db.Model):
 
     followedsketchbook = db.relationship("Sketchbook",
                                          foreign_keys=[sketchbook_id])
-    followinguser = db.relationship("User", foreign_keys=[follower_id])
+    followtouser = db.relationship("User", foreign_keys=[follower_id])
 
 
 class Post(db.Model):

@@ -1,6 +1,6 @@
 import jwt
 from flask import request
-# from .models import User
+from .models import User
 from functools import wraps
 from .config import Configuration
 
