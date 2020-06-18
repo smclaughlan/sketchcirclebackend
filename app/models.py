@@ -1,7 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+import pytz
 
+tz_LA = pytz.timezone('America/Los_Angeles')
 db = SQLAlchemy()
 
 
@@ -55,7 +57,7 @@ class Post(db.Model):
                               nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"),
                         nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(tz_LA),
                           nullable=False)
 
     posttouser = db.relationship("User", back_populates="usertopost")
@@ -68,7 +70,7 @@ class Sketchbook(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     title = db.Column(db.String(200))
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(tz_LA),
                           nullable=False)
 
     sketchbooktopost = db.relationship(
@@ -89,7 +91,7 @@ class Goal(db.Model):
     description = db.Column(db.String(1000))
     target = db.Column(db.Integer, nullable=False)
     targetdate = db.Column(db.DateTime, nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(tz_LA),
                           nullable=False)
 
     goalstousers = db.relationship("User", back_populates="userstogoals")
@@ -104,7 +106,7 @@ class Datapoint(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     goal_id = db.Column(db.Integer, db.ForeignKey("goals.id"), nullable=False)
     value = db.Column(db.Integer, nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(tz_LA),
                           nullable=False)
 
     datapointtogoal = db.relationship("Goal", back_populates="goaltodatapoint")

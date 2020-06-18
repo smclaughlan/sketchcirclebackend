@@ -13,6 +13,6 @@ def getBasicSketchbooks():
     for book in sketchbooks:
         returnDict[i] = {"owner_id": book.owner_id,
                          "title": book.title,
-                         "timestamp": book.timestamp}
+                         "timestamp": str(book.timestamp)}
         i += 1
     return returnDict

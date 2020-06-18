@@ -4,6 +4,10 @@ from app.models import User, Sketchbook, db
 import jwt
 from ..config import Configuration
 from ..util import token_required
+import datetime
+import pytz
+
+tz_LA = pytz.timezone('America/Los_Angeles')
 
 bp = Blueprint('user', __name__, url_prefix='')
 
@@ -18,7 +22,8 @@ def registration():
     db.session.add(newUser)
     db.session.commit()
     newSketchbook = Sketchbook(owner_id=newUser.id,
-                               title=f"{newUser.username}'s sketchbook")
+                               title=f"{newUser.username}'s sketchbook",
+                               timestamp=datetime.datetime.now(tz_LA))
     db.session.add(newSketchbook)
     db.session.commit()
     token = jwt.encode({'user_id': newUser.id}, Configuration.SECRET_KEY)
