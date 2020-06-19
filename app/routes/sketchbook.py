@@ -62,6 +62,7 @@ def getSketchbookPosts(sk_id):
     postsList = []
     for post in posts:
         currPost = {
+            'id': post.id,
             'user_id': post.user_id,
             'username': post.posttouser.username,
             'sketchbook_id': post.sketchbook_id,
@@ -86,6 +87,7 @@ def addPost(current_user, sk_id):
     db.session.add(newPost)
     db.session.commit()
     retPost = {
+        'id': newPost.id,
         'user_id': current_user.id,
         'username': current_user.username,
         'sketchbook_id': sk_id,
