@@ -1,6 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from sqlalchemy import and_
-from app.models import Follow, User, Sketchbook, db
+from app.models import Follow, User, Sketchbook, Post, db
 from ..util import token_required
 
 bp = Blueprint("sketchbook", __name__, "")
@@ -54,3 +54,24 @@ def deleteFollow(current_user, sk_id):
     db.session.delete(followToDelete)
     db.session.commit()
     return {"sketchbook_id": followToDelete.sketchbook_id}
+
+
+@bp.route("/sketchbooks/<int:sk_id>", methods=["POST"])
+@token_required
+def addPost(current_user, sk_id):
+    data = request.json
+    print(data)
+    newPost = Post(
+        user_id=current_user.id,
+        sketchbook_id=sk_id,
+        body=data['msgBody']
+    )
+    db.session.add(newPost)
+    db.session.commit()
+    retPost = {
+        'user_id': current_user.id,
+        'sketchbook_id': sk_id,
+        'body': data['msgBody'],
+        'timestamp': newPost.timestamp,
+    }
+    return retPost
