@@ -56,6 +56,23 @@ def deleteFollow(current_user, sk_id):
     return {"sketchbook_id": followToDelete.sketchbook_id}
 
 
+@bp.route("/sketchbooks/<int:sk_id>")
+def getSketchbookPosts(sk_id):
+    posts = Post.query.filter(Post.sketchbook_id == sk_id).all()
+    postsList = []
+    for post in posts:
+        currPost = {
+            'user_id': post.user_id,
+            'username': post.posttouser.username,
+            'sketchbook_id': post.sketchbook_id,
+            'body': post.body,
+            'timestamp': post.timestamp,
+        }
+        postsList.append(currPost)
+    returnDict = {'posts': postsList}
+    return returnDict
+
+
 @bp.route("/sketchbooks/<int:sk_id>", methods=["POST"])
 @token_required
 def addPost(current_user, sk_id):
