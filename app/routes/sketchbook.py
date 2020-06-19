@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from sqlalchemy import and_
-from app.models import Follow, Goal, User, Sketchbook, Post, db
+from app.models import Follow, Goal, User, Sketchbook, Post, Datapoint, db
 from ..util import token_required
 from datetime import datetime
 
@@ -149,5 +149,23 @@ def addGoal(current_user):
         'target': newGoal.target,
         'targetdate': newGoal.targetdate,
         'timestamp': newGoal.timestamp
+    }
+    return returnDict
+
+
+@bp.route("/goal/newdata", methods=["POST"])
+@token_required
+def addDataPoint(current_user):
+    data = request.json
+    newDataPoint = Datapoint(
+        goal_id=data['goalid'],
+        value=data['value']
+    )
+    db.session.add(newDataPoint)
+    db.session.commit()
+    returnDict = {
+        'goal_id': newDataPoint.goal_id,
+        'value': newDataPoint.value,
+        'timestamp': newDataPoint.timestamp
     }
     return returnDict
