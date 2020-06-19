@@ -75,6 +75,7 @@ def getSketchbookPosts(sk_id):
 
     goals = Goal.query.filter(Goal.Sketchbook_id == sk_id).all()
     goalsList = []
+    datapointsList = []
     for goal in goals:
         currGoal = {
             'id': goal.id,
@@ -87,9 +88,24 @@ def getSketchbookPosts(sk_id):
             'timestamp': goal.timestamp
         }
         goalsList.append(currGoal)
+        datapoints = Datapoint.query.filter(Datapoint.goal_id == goal.id).all()
+        datapointsList.append(datapoints)
+        print(datapointsList)
+
+    retDatapointsList = []
+    for datapoint in datapointsList:
+        currDatapoint = {
+            'id': datapoint.id,
+            'goal_id': datapoint.goal_id,
+            'value': datapoint.value,
+            'timestamp': datapoint.timestamp
+        }
+        retDatapointsList.append(currDatapoint)
+
     returnDict = {
         'posts': postsList,
-        'goals': goalsList
+        'goals': goalsList,
+        'datapoints': retDatapointsList
     }
     return returnDict
 
