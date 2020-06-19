@@ -4,7 +4,7 @@ from app.models import User, Sketchbook, db
 import jwt
 from ..config import Configuration
 from ..util import token_required
-import datetime
+from datetime import datetime
 
 
 bp = Blueprint('user', __name__, url_prefix='')
@@ -21,7 +21,7 @@ def registration():
     db.session.commit()
     newSketchbook = Sketchbook(owner_id=newUser.id,
                                title=f"{newUser.username}'s sketchbook",
-                               timestamp=datetime.datetime.now())
+                               timestamp=datetime.now())
     db.session.add(newSketchbook)
     db.session.commit()
     token = jwt.encode({'user_id': newUser.id}, Configuration.SECRET_KEY)

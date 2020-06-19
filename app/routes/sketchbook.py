@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from sqlalchemy import and_
-from app.models import Follow, User, Sketchbook, Post, db
+from app.models import Follow, Goal, User, Sketchbook, Post, db
 from ..util import token_required
+from datetime import datetime
 
 bp = Blueprint("sketchbook", __name__, "")
 
@@ -71,7 +72,23 @@ def getSketchbookPosts(sk_id):
             'timestamp': post.timestamp,
         }
         postsList.append(currPost)
-    returnDict = {'posts': postsList}
+
+    goals = Goal.query.filter(Goal.Sketchbook_id == sk_id).all()
+    goalsList = []
+    for goal in goals:
+        currGoal = {
+            'owner_id': goal.owner_id,
+            'sketchbook_id': goal.Sketchbook_id,
+            'title': goal.title,
+            'description': goal.description,
+            'target': goal.target,
+            'targetdate': goal.targetdate
+        }
+        goalsList.append(currGoal)
+    returnDict = {
+        'posts': postsList,
+        'goals': goalsList
+    }
     return returnDict
 
 
@@ -97,3 +114,36 @@ def addPost(current_user, sk_id):
         'timestamp': newPost.timestamp,
     }
     return retPost
+
+
+@bp.route("/goal", methods=["POST"])
+@token_required
+def addGoal(current_user):
+    data = request.json
+    splitTargetDate = data['targetDate'].split('-')
+    joinedTargetDate = ' '.join(splitTargetDate)
+    print(data)
+    datetimeOfTarget = datetime.strptime(
+        joinedTargetDate, '%Y %m %d')
+    print(datetimeOfTarget)
+    userSketchbook = Sketchbook.query.filter(
+        Sketchbook.owner_id == current_user.id).first()
+    newGoal = Goal(
+        owner_id=current_user.id,
+        Sketchbook_id=userSketchbook.id,
+        title=data['title'],
+        description=data['description'],
+        target=data['target'],
+        targetdate=datetimeOfTarget,
+    )
+    db.session.add(newGoal)
+    db.session.commit()
+    returnDict = {
+        'owner_id': newGoal.owner_id,
+        'sketchbook_id': newGoal.Sketchbook_id,
+        'title': newGoal.title,
+        'description': newGoal.description,
+        'target': newGoal.target,
+        'targetdate': newGoal.targetdate
+    }
+    return returnDict
