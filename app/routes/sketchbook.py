@@ -70,6 +70,7 @@ def addPost(current_user, sk_id):
     db.session.commit()
     retPost = {
         'user_id': current_user.id,
+        'username': current_user.username,
         'sketchbook_id': sk_id,
         'body': data['msgBody'],
         'timestamp': newPost.timestamp,
