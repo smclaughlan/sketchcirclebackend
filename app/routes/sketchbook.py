@@ -83,7 +83,8 @@ def getSketchbookPosts(sk_id):
             'title': goal.title,
             'description': goal.description,
             'target': goal.target,
-            'targetdate': goal.targetdate
+            'targetdate': goal.targetdate,
+            'timestamp': newGoal.timestamp
         }
         goalsList.append(currGoal)
     returnDict = {
@@ -146,6 +147,7 @@ def addGoal(current_user):
         'title': newGoal.title,
         'description': newGoal.description,
         'target': newGoal.target,
-        'targetdate': newGoal.targetdate
+        'targetdate': newGoal.targetdate,
+        'timestamp': newGoal.timestamp
     }
     return returnDict
