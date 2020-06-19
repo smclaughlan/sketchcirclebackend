@@ -84,7 +84,7 @@ def getSketchbookPosts(sk_id):
             'description': goal.description,
             'target': goal.target,
             'targetdate': goal.targetdate,
-            'timestamp': newGoal.timestamp
+            'timestamp': goal.timestamp
         }
         goalsList.append(currGoal)
     returnDict = {
