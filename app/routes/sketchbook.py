@@ -77,6 +77,7 @@ def getSketchbookPosts(sk_id):
     goalsList = []
     for goal in goals:
         currGoal = {
+            'id': goal.id,
             'owner_id': goal.owner_id,
             'sketchbook_id': goal.Sketchbook_id,
             'title': goal.title,
@@ -139,6 +140,7 @@ def addGoal(current_user):
     db.session.add(newGoal)
     db.session.commit()
     returnDict = {
+        'id': newGoal.id,
         'owner_id': newGoal.owner_id,
         'sketchbook_id': newGoal.Sketchbook_id,
         'title': newGoal.title,
