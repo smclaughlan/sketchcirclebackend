@@ -91,7 +91,7 @@ def getSketchbookPosts(sk_id):
         datapoints = Datapoint.query.filter(Datapoint.goal_id == goal.id).all()
         datapointsList.append(datapoints)
 
-    retDatapointsList = []
+    retDatapointsDict = dict()
     for datapointArr in datapointsList:
         for datapoint in datapointArr:
             currDatapoint = {
@@ -100,12 +100,15 @@ def getSketchbookPosts(sk_id):
                 'value': datapoint.value,
                 'timestamp': datapoint.timestamp
             }
-            retDatapointsList.append(currDatapoint)
+            if datapoint.goal_id in dict.keys(retDatapointsDict):
+                retDatapointsDict[datapoint.goal_id].append(currDatapoint)
+            else:
+                retDatapointsDict[datapoint.goal_id] = [currDatapoint]
 
     returnDict = {
         'posts': postsList,
         'goals': goalsList,
-        'datapoints': retDatapointsList
+        'datapoints': retDatapointsDict
     }
     return returnDict
 
