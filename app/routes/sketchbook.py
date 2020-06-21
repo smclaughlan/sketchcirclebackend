@@ -65,18 +65,21 @@ def getSketchbookPosts(sk_id):
         skbId = post.sketchbook_id
         postId = post.id
         if not skbId in postsDict.keys():
-            postsDict[skbId] = postId
-        postsDict[skbId] = {postId: post.dictify()}
+            postsDict[skbId] = {postId: None}
+        postsDict[skbId][postId] = post.dictify()
 
     goals = Goal.query.filter(Goal.Sketchbook_id == sk_id).all()
     goalsDict = dict()
     datapointsDict = dict()
     for goal in goals:
-        goalsDict[goal.Sketchbook_id] = {goal.id: goal.dictify()}
+        if not goal.Sketchbook_id in goalsDict.keys():
+            goalsDict[goal.Sketchbook_id] = {goal.id: None}
+        goalsDict[goal.Sketchbook_id][goal.id] = goal.dictify()
         datapoints = Datapoint.query.filter(Datapoint.goal_id == goal.id).all()
         for datapoint in datapoints:
-            datapointsDict[datapoint.goal_id] = {
-                datapoint.id: datapoint.dictify()}
+            if not datapoint.goal_id in datapointsDict.keys():
+                datapointsDict[datapoint.goal_id] = {datapoint.id: None}
+            datapointsDict[datapoint.goal_id][datapoint.id] = datapoint.dictify()
 
     returnDict = {
         'posts': postsDict,
