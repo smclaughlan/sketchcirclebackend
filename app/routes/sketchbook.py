@@ -102,13 +102,17 @@ def addPost(current_user, sk_id):
     db.session.add(newPost)
     db.session.commit()
     retPost = {
-        'id': newPost.id,
-        'user_id': current_user.id,
-        'username': current_user.username,
-        'avatar': current_user.avatarurl,
-        'sketchbook_id': sk_id,
-        'body': data['msgBody'],
-        'timestamp': newPost.timestamp,
+        sk_id: {
+            newPost.id: {
+                'id': newPost.id,
+                'user_id': current_user.id,
+                'username': current_user.username,
+                'avatar': current_user.avatarurl,
+                'sketchbook_id': sk_id,
+                'body': data['msgBody'],
+                'timestamp': newPost.timestamp,
+            }
+        }
     }
     return retPost
 
@@ -136,14 +140,18 @@ def addGoal(current_user):
     db.session.add(newGoal)
     db.session.commit()
     returnDict = {
-        'id': newGoal.id,
-        'owner_id': newGoal.owner_id,
-        'sketchbook_id': newGoal.Sketchbook_id,
-        'title': newGoal.title,
-        'description': newGoal.description,
-        'target': newGoal.target,
-        'targetdate': newGoal.targetdate,
-        'timestamp': newGoal.timestamp
+        newGoal.Sketchbook_id: {
+            newGoal.id: {
+                'id': newGoal.id,
+                'owner_id': newGoal.owner_id,
+                'sketchbook_id': newGoal.Sketchbook_id,
+                'title': newGoal.title,
+                'description': newGoal.description,
+                'target': newGoal.target,
+                'targetdate': newGoal.targetdate,
+                'timestamp': newGoal.timestamp
+            }
+        }
     }
     return returnDict
 
@@ -159,8 +167,12 @@ def addDataPoint(current_user):
     db.session.add(newDataPoint)
     db.session.commit()
     returnDict = {
-        'goal_id': newDataPoint.goal_id,
-        'value': newDataPoint.value,
-        'timestamp': newDataPoint.timestamp
+        newDataPoint.goal_id: {
+            newDataPoint.id: {
+                'goal_id': newDataPoint.goal_id,
+                'value': newDataPoint.value,
+                'timestamp': newDataPoint.timestamp
+            }
+        }
     }
     return returnDict
