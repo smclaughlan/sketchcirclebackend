@@ -97,7 +97,8 @@ def addPost(current_user, sk_id):
     newPost = Post(
         user_id=current_user.id,
         sketchbook_id=sk_id,
-        body=data['msgBody']
+        body=data['msgBody'],
+        timestamp=datetime.now()
     )
     db.session.add(newPost)
     db.session.commit()
@@ -136,6 +137,7 @@ def addGoal(current_user):
         description=data['description'],
         target=data['target'],
         targetdate=datetimeOfTarget,
+        timestamp=datetime.now()
     )
     db.session.add(newGoal)
     db.session.commit()
@@ -162,7 +164,8 @@ def addDataPoint(current_user):
     data = request.json
     newDataPoint = Datapoint(
         goal_id=data['goalid'],
-        value=data['value']
+        value=data['value'],
+        timestamp=datetime.now()
     )
     db.session.add(newDataPoint)
     db.session.commit()
