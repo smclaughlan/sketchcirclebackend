@@ -60,55 +60,28 @@ def deleteFollow(current_user, sk_id):
 @bp.route("/sketchbooks/<int:sk_id>")
 def getSketchbookPosts(sk_id):
     posts = Post.query.filter(Post.sketchbook_id == sk_id).all()
-    postsList = []
+    postsDict = dict()
     for post in posts:
-        currPost = {
-            'id': post.id,
-            'user_id': post.user_id,
-            'username': post.posttouser.username,
-            'avatar': post.posttouser.avatarurl,
-            'sketchbook_id': post.sketchbook_id,
-            'body': post.body,
-            'timestamp': post.timestamp,
-        }
-        postsList.append(currPost)
+        skbId = post.sketchbook_id
+        postId = post.id
+        if not skbId in postsDict.keys():
+            postsDict[skbId] = postId
+        postsDict[skbId] = {postId: post.dictify()}
 
     goals = Goal.query.filter(Goal.Sketchbook_id == sk_id).all()
-    goalsList = []
-    datapointsList = []
+    goalsDict = dict()
+    datapointsDict = dict()
     for goal in goals:
-        currGoal = {
-            'id': goal.id,
-            'owner_id': goal.owner_id,
-            'sketchbook_id': goal.Sketchbook_id,
-            'title': goal.title,
-            'description': goal.description,
-            'target': goal.target,
-            'targetdate': goal.targetdate,
-            'timestamp': goal.timestamp
-        }
-        goalsList.append(currGoal)
+        goalsDict[goal.Sketchbook_id] = {goal.id: goal.dictify()}
         datapoints = Datapoint.query.filter(Datapoint.goal_id == goal.id).all()
-        datapointsList.append(datapoints)
-
-    retDatapointsDict = dict()
-    for datapointArr in datapointsList:
-        for datapoint in datapointArr:
-            currDatapoint = {
-                'id': datapoint.id,
-                'goal_id': datapoint.goal_id,
-                'value': datapoint.value,
-                'timestamp': datapoint.timestamp
-            }
-            if datapoint.goal_id in dict.keys(retDatapointsDict):
-                retDatapointsDict[datapoint.goal_id].append(currDatapoint)
-            else:
-                retDatapointsDict[datapoint.goal_id] = [currDatapoint]
+        for datapoint in datapoints:
+            datapointsDict[datapoint.goal_id] = {
+                datapoint.id: datapoint.dictify()}
 
     returnDict = {
-        'posts': postsList,
-        'goals': goalsList,
-        'datapoints': retDatapointsDict
+        'posts': postsDict,
+        'goals': goalsDict,
+        'datapoints': datapointsDict
     }
     return returnDict
 

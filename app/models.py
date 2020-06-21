@@ -75,6 +75,8 @@ class Post(db.Model):
         return {
             'id': self.id,
             'body': self.body,
+            'username': self.posttouser.username,
+            'avatar': self.posttouser.avatarurl,
             'sketchbook_id': self.sketchbook_id,
             'user_id': self.user_id,
             'timestamp': self.timestamp
