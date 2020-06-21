@@ -48,6 +48,13 @@ class Follow(db.Model):
                                          foreign_keys=[sketchbook_id])
     followtouser = db.relationship("User", foreign_keys=[follower_id])
 
+    def dictify(self):
+        return {
+            'id': self.id,
+            'follower_id': self.follower_id,
+            'sketchbook_id': self.sketchbook_id
+        }
+
 
 class Post(db.Model):
     __tablename__ = "posts"
@@ -64,6 +71,15 @@ class Post(db.Model):
     posttosketchbook = db.relationship(
         "Sketchbook", back_populates="sketchbooktopost")
 
+    def dictify(self):
+        return {
+            'id': self.id,
+            'body': self.body,
+            'sketchbook_id': self.sketchbook_id,
+            'user_id': self.user_id,
+            'timestamp': self.timestamp
+        }
+
 
 class Sketchbook(db.Model):
     __tablename__ = "sketchbooks"
@@ -79,6 +95,14 @@ class Sketchbook(db.Model):
         "User", back_populates="usertosketchbook")
     sketchbookstogoals = db.relationship(
         "Goal", back_populates="goalstosketchbooks")
+
+    def dictify(self):
+        return {
+            'id': self.id,
+            'owner_id': self.owner_id,
+            'title': self.title,
+            'timestamp': self.timestamp
+        }
 
 
 class Goal(db.Model):
@@ -100,6 +124,18 @@ class Goal(db.Model):
     goaltodatapoint = db.relationship(
         "Datapoint", back_populates="datapointtogoal")
 
+    def dictify(self):
+        return {
+            'id': self.id,
+            'owner_id': self.owner_id,
+            'sketchbook_id': self.Sketchbook_id,
+            'title': self.title,
+            'description': self.description,
+            'target': self.target,
+            'targetdate': self.targetdate,
+            'timestamp': self.timestamp
+        }
+
 
 class Datapoint(db.Model):
     __tablename__ = "datapoints"
@@ -110,3 +146,11 @@ class Datapoint(db.Model):
                           nullable=False)
 
     datapointtogoal = db.relationship("Goal", back_populates="goaltodatapoint")
+
+    def dictify(self):
+        return {
+            'id': self.id,
+            'goal_id': self.goal_id,
+            'value': self.value,
+            'timestamp': self.timestamp
+        }
