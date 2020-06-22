@@ -102,6 +102,11 @@ def addPost(current_user, sk_id):
     )
     db.session.add(newPost)
     db.session.commit()
+
+    skb = Sketchbook.query.filter(Sketchbook.id == sk_id).first()
+    skb.timestamp = datetime.now()
+    db.session.commit()
+
     retPost = {
         sk_id: {
             newPost.id: {
@@ -141,6 +146,21 @@ def addGoal(current_user):
     )
     db.session.add(newGoal)
     db.session.commit()
+
+    # check for goals that have passed finished date, and delete them
+    goalsForCurrUser = Goal.query.filter(
+        Goal.owner_id == current_user.id).all()
+    currDate = datetime.now()
+    for goal in goalsForCurrUser:
+        if goal.targetdate < currDate:
+            datapoints = Datapoint.query.filter(
+                Datapoint.goal_id == goal.id).all()
+            for datapoint in datapoints:
+                db.session.delete(datapoint)
+            db.session.delete(goal)
+
+    db.session.commit()
+
     returnDict = {
         newGoal.Sketchbook_id: {
             newGoal.id: {
