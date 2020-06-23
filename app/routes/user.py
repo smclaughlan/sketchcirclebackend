@@ -31,6 +31,17 @@ def registration():
     }
 
 
+@bp.route('/users', methods=['PUT'])
+@token_required
+def userUpdate(current_user):
+    data = request.json
+    avaUrl = data['avatarUrl']
+    updateUser = User.query.filter(User.id == current_user.id).first()
+    updateUser.avatarurl = avaUrl
+    db.session.commit()
+    return {'message': 'avatar updated'}
+
+
 @bp.route('/users/login', methods=['POST'])
 def login():
     data = request.json
