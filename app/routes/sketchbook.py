@@ -17,6 +17,7 @@ def getBasicSketchbooks():
         sketchbookDict = dict()
         sketchbookDict[book.id] = {"owner_id": book.owner_id,
                                    "sketchbook_id": book.id,
+                                   "avatar": book.sketchbooktouser.avatarurl,
                                    "title": book.title,
                                    "timestamp": str(book.timestamp)}
         sketchbookList.append(sketchbookDict)
