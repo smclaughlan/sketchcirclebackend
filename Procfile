@@ -1,1 +1,2 @@
-web: pipenv run flask run
+web: gunicorn app:app
+release: flask db upgrade
