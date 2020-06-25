@@ -22,7 +22,7 @@ def getBasicSketchbooks():
                                    "timestamp": str(book.timestamp)}
         sketchbookList.append(sketchbookDict)
         # i += 1
-    print(sketchbookList)
+
     follows = Follow.query.all()
     followList = []
     for follow in follows:
@@ -31,7 +31,7 @@ def getBasicSketchbooks():
     returnDict = dict()
     returnDict['sketchbooks'] = sketchbookList
     returnDict['follows'] = followList
-    print(returnDict)
+
     return returnDict
 
 
@@ -94,7 +94,7 @@ def getSketchbookPosts(sk_id):
 @token_required
 def addPost(current_user, sk_id):
     data = request.json
-    print(data)
+
     newPost = Post(
         user_id=current_user.id,
         sketchbook_id=sk_id,
@@ -130,10 +130,10 @@ def addGoal(current_user):
     data = request.json
     splitTargetDate = data['targetDate'].split('-')
     joinedTargetDate = ' '.join(splitTargetDate)
-    print(data)
+
     datetimeOfTarget = datetime.strptime(
         joinedTargetDate, '%Y %m %d')
-    print(datetimeOfTarget)
+
     userSketchbook = Sketchbook.query.filter(
         Sketchbook.owner_id == current_user.id).first()
     newGoal = Goal(
