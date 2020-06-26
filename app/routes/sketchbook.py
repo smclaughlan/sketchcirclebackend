@@ -35,6 +35,18 @@ def getBasicSketchbooks():
     return returnDict
 
 
+@bp.route("/posts/<int:postId>", methods=["DELETE"])
+@token_required
+def deletePost(current_user, postId):
+    print(current_user.id)
+    print(postId)
+    postToDelete = Post.query.filter(Post.id == postId).first()
+    if postToDelete.user_id == current_user.id:
+        db.session.delete(postToDelete)
+        db.session.commit()
+    return {"message": "post deleted"}
+
+
 @bp.route("/sketchbooks/<int:sk_id>/follow", methods=["POST"])
 @token_required
 def addFollow(current_user, sk_id):
