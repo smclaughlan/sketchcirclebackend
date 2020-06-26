@@ -47,6 +47,19 @@ def deletePost(current_user, postId):
     return {"message": "post deleted"}
 
 
+@bp.route("/posts/<int:postId>", methods=["PUT"])
+@token_required
+def updatePost(current_user, postId):
+    data = request.json
+    postToUpdate = Post.query.filter(Post.id == postId).first()
+    if postToUpdate.user_id == current_user.id:
+        print(postToUpdate.body)
+        postToUpdate.body = data['body']
+        print(postToUpdate.body)
+        db.session.commit()
+    return {"message": "post updated"}
+
+
 @bp.route("/sketchbooks/<int:sk_id>/follow", methods=["POST"])
 @token_required
 def addFollow(current_user, sk_id):
