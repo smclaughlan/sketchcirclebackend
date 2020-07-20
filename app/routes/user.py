@@ -18,12 +18,12 @@ def registration():
     # send error msg if so
     foundUsername = User.query.filter(
         User.username == data['username']).first()
-    if foundUsername:
+    if foundUsername['username'] == data['username']:
         return {'message': 'Username already in use'}
 
     foundEmail = User.query.filter(
         User.email == data['email']).first()
-    if foundEmail:
+    if foundEmail['email'] == data['email']:
         return {'message': 'Email already in use'}
 
     hashedPassword = generate_password_hash(data["hashed_password"])
