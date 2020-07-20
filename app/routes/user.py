@@ -13,6 +13,19 @@ bp = Blueprint('user', __name__, url_prefix='')
 @bp.route('/users', methods=['POST'])
 def registration():
     data = request.json
+
+    # check if username or email are already taken
+    # send error msg if so
+    foundUsername = User.query.filter(
+        User.username == data['username']).first()
+    if foundUsername:
+        return {'message': 'Username already in use'}
+
+    foundEmail = User.query.filter(
+        User.email == data['email']).first()
+    if foundEmail:
+        return {'message': 'Email already in use'}
+
     hashedPassword = generate_password_hash(data["hashed_password"])
     newUser = User(username=data['username'],
                    email=data['email'],
