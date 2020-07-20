@@ -48,7 +48,7 @@ def login():
     userEmail = data['email']
     userPassword = data['password']
     userToLogin = User.query.filter_by(email=userEmail).first()
-    if userToLogin.check_password(userPassword):
+    if userToLogin and userToLogin.check_password(userPassword):
         token = jwt.encode({'user_id': userToLogin.id},
                            Configuration.SECRET_KEY)
         return {
