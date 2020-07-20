@@ -18,13 +18,13 @@ def registration():
     # send error msg if so
     foundUsername = User.query.filter(
         User.username == data['username']).first()
-    if foundUsername['username'] == data['username']:
-        return {'message': 'Username already in use'}
+    if foundUsername.username == data['username']:
+        return {'message': 'Username already in use'}, 403
 
     foundEmail = User.query.filter(
         User.email == data['email']).first()
-    if foundEmail['email'] == data['email']:
-        return {'message': 'Email already in use'}
+    if foundEmail.email == data['email']:
+        return {'message': 'Email already in use'}, 403
 
     hashedPassword = generate_password_hash(data["hashed_password"])
     newUser = User(username=data['username'],
