@@ -56,4 +56,4 @@ def login():
             'currentUserId': userToLogin.id,
         }
     else:
-        return {'message': 'Invalid information'}, 401
+        return {'message': 'Invalid user credentials'}, 401
