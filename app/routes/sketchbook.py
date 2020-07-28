@@ -38,8 +38,6 @@ def getBasicSketchbooks():
 @bp.route("/posts/<int:postId>", methods=["DELETE"])
 @token_required
 def deletePost(current_user, postId):
-    print(current_user.id)
-    print(postId)
     postToDelete = Post.query.filter(Post.id == postId).first()
     if postToDelete.user_id == current_user.id:
         db.session.delete(postToDelete)
@@ -53,9 +51,7 @@ def updatePost(current_user, postId):
     data = request.json
     postToUpdate = Post.query.filter(Post.id == postId).first()
     if postToUpdate.user_id == current_user.id:
-        print(postToUpdate.body)
         postToUpdate.body = data['body']
-        print(postToUpdate.body)
         db.session.commit()
     return {"message": "post updated"}
 
