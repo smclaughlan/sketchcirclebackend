@@ -89,19 +89,29 @@ with app.app_context():
         timestamp=datetime(2020, 3, 19)
     )
     post8 = Post(
-        body="Suspendisse et eros ut augue fringilla volutpat sit amet id sapien. Nunc imperdiet sodales mauris, a hendrerit lorem vehicula eget. Nam fringilla, tortor et sagittis porta, lacus purus porttitor dui, id molestie velit arcu in sapien. Suspendisse mi dui, scelerisque fringilla feugiat sed, sagittis ac elit. Ut ante dui, tristique at tincidunt eget, iaculis ut quam. Cras hendrerit leo a elit aliquam consectetur a vehicula justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae        Curabitur sodales nibh et ipsum maximus cursus. Donec nec elit et ex lobortis placerat. ![](https: // 78.media.tumblr.com/b7f3cc6599b1b37fcb2262630ef3c1a3/tumblr_pc8xkwTa2E1r4ltwho1_540.png) ![](https: // 78.media.tumblr.com/c564c8939fc855a3d9a20e25fa847d32/tumblr_pcb6jfmopg1r4ltwho1_1280.png)",
+        body="""Suspendisse et eros ut augue fringilla volutpat sit amet id sapien. Nunc imperdiet sodales mauris, a hendrerit lorem vehicula eget. Nam fringilla, tortor et sagittis porta, lacus purus porttitor dui, id molestie velit arcu in sapien. Suspendisse mi dui, scelerisque fringilla feugiat sed, sagittis ac elit. Ut ante dui, tristique at tincidunt eget, iaculis ut quam. Cras hendrerit leo a elit aliquam consectetur a vehicula justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae        Curabitur sodales nibh et ipsum maximus cursus. Donec nec elit et ex lobortis placerat.
+
+        ![](https://78.media.tumblr.com/b7f3cc6599b1b37fcb2262630ef3c1a3/tumblr_pc8xkwTa2E1r4ltwho1_540.png)
+
+        ![](https://78.media.tumblr.com/c564c8939fc855a3d9a20e25fa847d32/tumblr_pcb6jfmopg1r4ltwho1_1280.png)""",
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 4, 10)
     )
     post9 = Post(
-        body="Vestibulum dignissim rutrum sagittis. Nunc interdum volutpat turpis, non accumsan metus dignissim id. Duis est massa, efficitur interdum condimentum ut, tempus nec lacus. Vestibulum gravida hendrerit nulla sit amet venenatis. Aenean a metus laoreet, sollicitudin nulla vel, molestie metus. Proin ligula lorem, pellentesque eu ullamcorper vel, varius et lacus. Nunc vel viverra sapien. Ut aliquam volutpat velit vitae posuere. Suspendisse non tempor enim. Etiam efficitur arcu non lacus egestas, sit amet eleifend arcu auctor. In porttitor, odio vel molestie fringilla, libero orci egestas nisl, nec lacinia lorem nunc et dui. Suspendisse potenti.         ![](https: // 66.media.tumblr.com/e895da808fbbfd1ee07218cf0c65cbce/tumblr_pn5wqrz6S71r4ltwho1_1280.png)         ![](https: // 66.media.tumblr.com/f05c260b95bead649f6487f58a26b326/tumblr_ppblco8Sv71r4ltwho2_1280.png)         ![](https: // 66.media.tumblr.com/ba2c5d5beb07f9ebfcda2cf1af005ea5/tumblr_ppblco8Sv71r4ltwho1_1280.png)",
+        body="""Vestibulum dignissim rutrum sagittis. Nunc interdum volutpat turpis, non accumsan metus dignissim id. Duis est massa, efficitur interdum condimentum ut, tempus nec lacus. Vestibulum gravida hendrerit nulla sit amet venenatis. Aenean a metus laoreet, sollicitudin nulla vel, molestie metus. Proin ligula lorem, pellentesque eu ullamcorper vel, varius et lacus. Nunc vel viverra sapien. Ut aliquam volutpat velit vitae posuere. Suspendisse non tempor enim. Etiam efficitur arcu non lacus egestas, sit amet eleifend arcu auctor. In porttitor, odio vel molestie fringilla, libero orci egestas nisl, nec lacinia lorem nunc et dui. Suspendisse potenti.
+
+        ![](https://66.media.tumblr.com/e895da808fbbfd1ee07218cf0c65cbce/tumblr_pn5wqrz6S71r4ltwho1_1280.png)
+        ![](https://66.media.tumblr.com/f05c260b95bead649f6487f58a26b326/tumblr_ppblco8Sv71r4ltwho2_1280.png)
+        ![](https://66.media.tumblr.com/ba2c5d5beb07f9ebfcda2cf1af005ea5/tumblr_ppblco8Sv71r4ltwho1_1280.png)""",
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 5, 13)
     )
     post10 = Post(
-        body="Cras elit felis, ultrices vel arcu ut, gravida hendrerit quam. Aliquam laoreet vestibulum mauris eget feugiat. Suspendisse congue quis sapien posuere hendrerit. Mauris sit amet blandit augue. Proin porta libero nulla, eu commodo metus gravida a. Quisque vehicula, massa quis feugiat malesuada, nisi ante ultricies turpis, a sollicitudin neque odio nec dolor. Vestibulum at imperdiet dui. Aliquam et congue lorem. Sed tincidunt imperdiet tellus eu posuere. Donec placerat elementum urna id iaculis. Nulla facilisi. Vestibulum ipsum neque, sollicitudin eu risus ac, efficitur laoreet lectus. ![](https: // 66.media.tumblr.com/8a9f141952b77e3fee953c71628ce1c8/tumblr_opbgjv1dOF1r4ltwho1_640.png)",
+        body="""Cras elit felis, ultrices vel arcu ut, gravida hendrerit quam. Aliquam laoreet vestibulum mauris eget feugiat. Suspendisse congue quis sapien posuere hendrerit. Mauris sit amet blandit augue. Proin porta libero nulla, eu commodo metus gravida a. Quisque vehicula, massa quis feugiat malesuada, nisi ante ultricies turpis, a sollicitudin neque odio nec dolor. Vestibulum at imperdiet dui. Aliquam et congue lorem. Sed tincidunt imperdiet tellus eu posuere. Donec placerat elementum urna id iaculis. Nulla facilisi. Vestibulum ipsum neque, sollicitudin eu risus ac, efficitur laoreet lectus.
+
+        ![](https://66.media.tumblr.com/8a9f141952b77e3fee953c71628ce1c8/tumblr_opbgjv1dOF1r4ltwho1_640.png)""",
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 6, 16)
