@@ -25,43 +25,65 @@ with app.app_context():
     )
 
     post1 = Post(
-        body="Here's an example sketchbook.         ![](https: // 66.media.tumblr.com/378aeb06aab219432ac99f5e14322afb/tumblr_o5quc9w6ap1r4ltwho1_1280.png)         ![](https: // 66.media.tumblr.com/1ecf7f27c19feb286388eabc1d7ff4f9/tumblr_o1n645Y8RE1r4ltwho1_1280.png)",
+        body="""Here's an example sketchbook.
+
+        ![](https://66.media.tumblr.com/378aeb06aab219432ac99f5e14322afb/tumblr_o5quc9w6ap1r4ltwho1_1280.png)
+        ![](https://66.media.tumblr.com/1ecf7f27c19feb286388eabc1d7ff4f9/tumblr_o1n645Y8RE1r4ltwho1_1280.png)
+        """,
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 1, 1)
     )
     post2 = Post(
-        body="Vivamus erat ipsum, pulvinar non dolor suscipit, pulvinar porttitor eros. Duis in vehicula turpis. Nam ac dapibus ligula, ut rhoncus dolor. Nulla imperdiet pharetra libero, ac maximus urna. Mauris blandit pretium mi, in venenatis purus posuere ut. In tristique sollicitudin sollicitudin. Morbi nec scelerisque nunc, non molestie nisi. Donec porta consectetur lorem eget consectetur. Cras nec malesuada lectus. Maecenas hendrerit nisl venenatis eros sagittis, sit amet vehicula diam congue. Etiam euismod ornare purus ac tempor. Morbi non mauris nibh. Integer porttitor, dolor quis fringilla placerat, quam urna iaculis purus, eget consectetur justo felis vitae libero. Mauris consectetur, sem nec feugiat maximus, lacus neque facilisis nulla, id varius lacus mauris vel massa.         ![](https: // 66.media.tumblr.com/d3c1d27e2c9a1fdedd482bcfa4c4fa78/tumblr_o1hvrslPPQ1r4ltwho1_540.png)         ![](https: // 66.media.tumblr.com/9e58d04b714baafae9cb19019809911f/tumblr_oaknvxYjni1r4ltwho1_1280.png)",
+        body="""Vivamus erat ipsum, pulvinar non dolor suscipit, pulvinar porttitor eros. Duis in vehicula turpis. Nam ac dapibus ligula, ut rhoncus dolor. Nulla imperdiet pharetra libero, ac maximus urna. Mauris blandit pretium mi, in venenatis purus posuere ut. In tristique sollicitudin sollicitudin. Morbi nec scelerisque nunc, non molestie nisi. Donec porta consectetur lorem eget consectetur. Cras nec malesuada lectus. Maecenas hendrerit nisl venenatis eros sagittis, sit amet vehicula diam congue. Etiam euismod ornare purus ac tempor. Morbi non mauris nibh. Integer porttitor, dolor quis fringilla placerat, quam urna iaculis purus, eget consectetur justo felis vitae libero. Mauris consectetur, sem nec feugiat maximus, lacus neque facilisis nulla, id varius lacus mauris vel massa.
+
+        ![](https://66.media.tumblr.com/d3c1d27e2c9a1fdedd482bcfa4c4fa78/tumblr_o1hvrslPPQ1r4ltwho1_540.png)
+        ![](https://66.media.tumblr.com/9e58d04b714baafae9cb19019809911f/tumblr_oaknvxYjni1r4ltwho1_1280.png)
+        """,
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 1, 15)
     )
     post3 = Post(
-        body="Nam pulvinar magna et viverra ultrices. Curabitur a mauris quis tortor euismod tincidunt sed a neque. Aliquam vestibulum congue velit eu placerat. Ut lacinia augue ut placerat tristique. Pellentesque sed auctor augue. Fusce sit amet ligula malesuada, tempus velit eget, bibendum ligula. Suspendisse ut sapien molestie, finibus massa et, luctus risus. Cras vel risus commodo turpis luctus facilisis. In ultrices lacus vel posuere rhoncus. Nam at odio quis purus ultrices molestie. Cras efficitur porta velit ac malesuada. Proin sit amet feugiat nulla.         ![](https: // 66.media.tumblr.com/c88a2430f1cd069c2c2150a912fa7188/tumblr_oan0kndgxU1r4ltwho1_1280.png)         ![](https: // 66.media.tumblr.com/61aed172599c3aeec5418088d279245f/tumblr_ofqinzMCO11r4ltwho1_1280.png)",
+        body="""Nam pulvinar magna et viverra ultrices. Curabitur a mauris quis tortor euismod tincidunt sed a neque. Aliquam vestibulum congue velit eu placerat. Ut lacinia augue ut placerat tristique. Pellentesque sed auctor augue. Fusce sit amet ligula malesuada, tempus velit eget, bibendum ligula. Suspendisse ut sapien molestie, finibus massa et, luctus risus. Cras vel risus commodo turpis luctus facilisis. In ultrices lacus vel posuere rhoncus. Nam at odio quis purus ultrices molestie. Cras efficitur porta velit ac malesuada. Proin sit amet feugiat nulla.
+
+        ![](https://66.media.tumblr.com/c88a2430f1cd069c2c2150a912fa7188/tumblr_oan0kndgxU1r4ltwho1_1280.png)
+        ![](https://66.media.tumblr.com/61aed172599c3aeec5418088d279245f/tumblr_ofqinzMCO11r4ltwho1_1280.png)
+        """,
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 1, 20)
     )
     post4 = Post(
-        body="Curabitur id turpis at quam vulputate fringilla vitae in lectus. Nulla mi nisl, pellentesque ac semper sed, iaculis et tortor. Nam iaculis sem placerat dolor tristique ornare sed eget nulla. Nulla facilisi. Vestibulum mollis justo felis, ac fringilla odio tincidunt at. Etiam vestibulum ante felis. Integer ac aliquam ante, nec lobortis risus. Fusce dictum nisl a diam tincidunt iaculis. Praesent accumsan turpis quis pretium varius. Pellentesque dignissim, nunc et tempus dictum, velit ligula sodales nisi, a lacinia arcu quam ut massa. Nulla eu laoreet erat, quis pretium nibh.         ![](https: // 68.media.tumblr.com/adfcfc9ac947ee9616391e32612650a2/tumblr_oj56b9FCcM1r4ltwho1_1280.png)",
+        body="""Curabitur id turpis at quam vulputate fringilla vitae in lectus. Nulla mi nisl, pellentesque ac semper sed, iaculis et tortor. Nam iaculis sem placerat dolor tristique ornare sed eget nulla. Nulla facilisi. Vestibulum mollis justo felis, ac fringilla odio tincidunt at. Etiam vestibulum ante felis. Integer ac aliquam ante, nec lobortis risus. Fusce dictum nisl a diam tincidunt iaculis. Praesent accumsan turpis quis pretium varius. Pellentesque dignissim, nunc et tempus dictum, velit ligula sodales nisi, a lacinia arcu quam ut massa. Nulla eu laoreet erat, quis pretium nibh.
+
+        ![](https: // 68.media.tumblr.com/adfcfc9ac947ee9616391e32612650a2/tumblr_oj56b9FCcM1r4ltwho1_1280.png)""",
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 2, 11)
     )
     post5 = Post(
-        body="Donec iaculis metus sit amet tellus feugiat, ac commodo dui tristique. Nunc nulla felis, mollis fermentum dapibus ultricies, molestie ut lorem. Ut congue pretium felis commodo volutpat. Sed in finibus purus. Etiam dictum urna lacus, vel pretium nunc porttitor vel. In laoreet blandit dui, feugiat faucibus enim condimentum et. Integer egestas fringilla justo, eget lobortis orci lobortis nec. Proin a tellus in nibh tempor porta vel sed mauris. In hac habitasse platea dictumst. Morbi luctus turpis porttitor, mollis odio sit amet, vestibulum nibh. Vestibulum eget fringilla libero, et consequat turpis. Curabitur convallis turpis nec massa malesuada, imperdiet cursus enim lacinia. Quisque sollicitudin, dui vel eleifend ultrices, ex neque elementum dolor, ac tempor leo nulla non orci.         ![](https: // 68.media.tumblr.com/ae44b24f3aba9bbcf1a0686bda94796c/tumblr_ok30mbsMRz1r4ltwho1_500.png)         ![](https: // 78.media.tumblr.com/8431461077bccf604fb798ee6704622f/tumblr_oxulrcjVHW1r4ltwho1_1280.png)",
+        body="""Donec iaculis metus sit amet tellus feugiat, ac commodo dui tristique. Nunc nulla felis, mollis fermentum dapibus ultricies, molestie ut lorem. Ut congue pretium felis commodo volutpat. Sed in finibus purus. Etiam dictum urna lacus, vel pretium nunc porttitor vel. In laoreet blandit dui, feugiat faucibus enim condimentum et. Integer egestas fringilla justo, eget lobortis orci lobortis nec. Proin a tellus in nibh tempor porta vel sed mauris. In hac habitasse platea dictumst. Morbi luctus turpis porttitor, mollis odio sit amet, vestibulum nibh. Vestibulum eget fringilla libero, et consequat turpis. Curabitur convallis turpis nec massa malesuada, imperdiet cursus enim lacinia. Quisque sollicitudin, dui vel eleifend ultrices, ex neque elementum dolor, ac tempor leo nulla non orci.
+
+        ![](https://68.media.tumblr.com/ae44b24f3aba9bbcf1a0686bda94796c/tumblr_ok30mbsMRz1r4ltwho1_500.png)
+        ![](https://78.media.tumblr.com/8431461077bccf604fb798ee6704622f/tumblr_oxulrcjVHW1r4ltwho1_1280.png)""",
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 2, 24)
     )
     post6 = Post(
-        body="Etiam interdum arcu ac turpis gravida lacinia. Curabitur ornare volutpat libero sed iaculis. Mauris nec leo non dolor suscipit vestibulum. Donec consectetur malesuada egestas. Vivamus vestibulum bibendum cursus. Praesent placerat tellus sed urna efficitur, sed pharetra urna vestibulum. Suspendisse potenti.         ![](https: // 78.media.tumblr.com/62a1a9781012144a92df3d357d1029e7/tumblr_p2qtagLXWG1r4ltwho1_1280.png)",
+        body="""Etiam interdum arcu ac turpis gravida lacinia. Curabitur ornare volutpat libero sed iaculis. Mauris nec leo non dolor suscipit vestibulum. Donec consectetur malesuada egestas. Vivamus vestibulum bibendum cursus. Praesent placerat tellus sed urna efficitur, sed pharetra urna vestibulum. Suspendisse potenti.
+
+        ![](https://78.media.tumblr.com/62a1a9781012144a92df3d357d1029e7/tumblr_p2qtagLXWG1r4ltwho1_1280.png)
+        """,
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 3, 9)
     )
     post7 = Post(
-        body="Praesent condimentum, eros vitae viverra fermentum, quam eros pulvinar urna, ac ornare nunc lorem ut ipsum. Sed eu interdum sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae        Nullam accumsan leo nec accumsan accumsan. Nullam placerat massa commodo est cursus, nec euismod enim facilisis. Vivamus a neque varius, ultricies enim volutpat, tincidunt odio. Curabitur purus dolor, varius vitae dignissim vitae, venenatis vel turpis. Praesent ac dui in urna vulputate sollicitudin. ![](https: // 78.media.tumblr.com/91f71502727c3a0afd03ac891117ab9c/tumblr_p3iknq8hMN1r4ltwho1_1280.png)",
+        body="""Nullam accumsan leo nec accumsan accumsan. Nullam placerat massa commodo est cursus, nec euismod enim facilisis. Vivamus a neque varius, ultricies enim volutpat, tincidunt odio. Curabitur purus dolor, varius vitae dignissim vitae, venenatis vel turpis. Praesent ac dui in urna vulputate sollicitudin.
+
+        ![](https://78.media.tumblr.com/91f71502727c3a0afd03ac891117ab9c/tumblr_p3iknq8hMN1r4ltwho1_1280.png)""",
         sketchbook_id=1,
         user_id=1,
         timestamp=datetime(2020, 3, 19)
