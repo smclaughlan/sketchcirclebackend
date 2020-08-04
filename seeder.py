@@ -117,8 +117,20 @@ with app.app_context():
         timestamp=datetime(2020, 6, 16)
     )
 
+    user2 = User(
+        username='Guest',
+        hashed_password='pbkdf2:sha256:150000$5cEZurmB$db355487fa715a469c081f7a99c29bd77c1b4303d5418b8bde0118e52795b1ef',
+        email='Guest@email.com',
+    )
+    skb2 = Sketchbook(
+        owner_id=2,
+        title='Guest\'s sketchbook'
+    )
+
     db.session.add(user1)
     db.session.add(skb1)
+    db.session.add(user2)
+    db.session.add(skb2)
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
