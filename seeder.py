@@ -1,3 +1,4 @@
+from datetime import datetime
 from app.models import User, Follow, Post, Sketchbook
 from app import app, db
 from dotenv import load_dotenv
@@ -22,103 +23,30 @@ with app.app_context():
         owner_id=1,
         title='DigitalPainter\'s sketchbook'
     )
-    # post1 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1589790758/Soundzone/images_uh1rxq.jpg',
-    #     caption='Ravesignal III',
-    #     poster=user1,
-    # )
-    # post2 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1589789244/Soundzone/a1139886656_10_ckmxu3.jpg',
-    #     caption='Analphabetapolothology',
-    #     poster=user1,
-    # )
-    # post3 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1589789439/Soundzone/a0265977949_10_sssren.jpg',
-    #     caption='Chanel Beads',
-    #     poster=user1,
-    # )
-    # post4 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1589788191/Soundzone/Sugar_is_Sweeter_hddwkc.jpg',
-    #     caption='Sugar is Sweeter - Jeff Mills',
-    #     poster=user1,
-    # )
-    # post5 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1589789905/Soundzone/a0856938911_10_c8x7h7.jpg',
-    #     caption='Grouper - Ruins',
-    #     poster=user1,
-    # )
-    # post6 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1591832875/Instantelegram/tree-736885_960_720_dmz2j3.jpg',
-    #     caption='Amazing Tree',
-    #     poster=user3,
-    # )
-    # post7 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1591832875/Instantelegram/aya-sofia-915076_960_720_avru8o.jpg',
-    #     caption='Aya Sofia',
-    #     poster=user3,
-    # )
-    # post8 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1591832876/Instantelegram/venice-3118803_960_720_eslila.jpg',
-    #     caption='Venice Palace',
-    #     poster=user3,
-    # )
-    # post9 = Post(
-    #     image='https://res.cloudinary.com/dgzcv1mcs/image/upload/v1591832876/Instantelegram/sea-5237374_960_720_vikixv.jpg',
-    #     caption='Beautiful Ocean',
-    #     poster=user3,
-    # )
-    # like1 = PostLike(
-    #     post_liked=post6,
-    #     post_liker=user1,
-    # )
-    # like2 = PostLike(
-    #     post_liked=post7,
-    #     post_liker=user1,
-    # )
-    # like3 = PostLike(
-    #     post_liked=post8,
-    #     post_liker=user1,
-    # )
-    # like4 = PostLike(
-    #     post_liked=post9,
-    #     post_liker=user1,
-    # )
-    # comment1 = Comment(
-    #     post_cmnt=post7,
-    #     commenter=user2,
-    #     body='Amazing picture'
-    # )
-    # comment2 = Comment(
-    #     post_cmnt=post6,
-    #     commenter=user1,
-    #     body='Great Photo!!'
-    # )
-    # comment3 = Comment(
-    #     post_cmnt=post7,
-    #     commenter=user1,
-    #     body='Cool'
-    # )
-    # comment4 = Comment(
-    #     post_cmnt=post6,
-    #     commenter=user3,
-    #     body='Super cool picture!!',
-    # )
-    # comment5 = Comment(
-    #     post_cmnt=post7,
-    #     commenter=user2,
-    #     body='OH MY GOD ;__; beautiful',
-    # )
-    # comment6 = Comment(
-    #     post_cmnt=post6,
-    #     commenter=user4,
-    #     body='WOW!!!!!!!',
-    # )
 
-    # db.session.add(user1)
-    # db.session.add(user2)
-    # db.session.add(user3)
-    # db.session.add(user4)
-    # db.session.add(f1)
+    post1 = Post(
+        body="Here's an example sketchbook.         ![](https: // 66.media.tumblr.com/378aeb06aab219432ac99f5e14322afb/tumblr_o5quc9w6ap1r4ltwho1_1280.png)         ![](https: // 66.media.tumblr.com/1ecf7f27c19feb286388eabc1d7ff4f9/tumblr_o1n645Y8RE1r4ltwho1_1280.png)",
+        sketchbook_id=1,
+        user_id=1,
+        timestamp=datetime(year: 2020, month: 1, day: 1)
+    )
+    post2 = Post(
+        body="Vivamus erat ipsum, pulvinar non dolor suscipit, pulvinar porttitor eros. Duis in vehicula turpis. Nam ac dapibus ligula, ut rhoncus dolor. Nulla imperdiet pharetra libero, ac maximus urna. Mauris blandit pretium mi, in venenatis purus posuere ut. In tristique sollicitudin sollicitudin. Morbi nec scelerisque nunc, non molestie nisi. Donec porta consectetur lorem eget consectetur. Cras nec malesuada lectus. Maecenas hendrerit nisl venenatis eros sagittis, sit amet vehicula diam congue. Etiam euismod ornare purus ac tempor. Morbi non mauris nibh. Integer porttitor, dolor quis fringilla placerat, quam urna iaculis purus, eget consectetur justo felis vitae libero. Mauris consectetur, sem nec feugiat maximus, lacus neque facilisis nulla, id varius lacus mauris vel massa.         ![](https: // 66.media.tumblr.com/d3c1d27e2c9a1fdedd482bcfa4c4fa78/tumblr_o1hvrslPPQ1r4ltwho1_540.png)         ![](https: // 66.media.tumblr.com/9e58d04b714baafae9cb19019809911f/tumblr_oaknvxYjni1r4ltwho1_1280.png)",
+        sketchbook_id=1,
+        user_id=1,
+        timestamp=datetime(year: 2020, month: 1, day: 15)
+    )
+
+    # body = db.Column(db.Text, nullable=False)
+    # sketchbook_id = db.Column(db.Integer, db.ForeignKey("sketchbooks.id"),
+    #                           nullable=False)
+    # user_id = db.Column(db.Integer, db.ForeignKey("users.id"),
+    #                     nullable=False)
+    # timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+    #                       nullable=False)
+
+    db.session.add(user1)
+    db.session.add(skb1)
     # db.session.add(f2)
     # db.session.add(f3)
     # db.session.add(f4)
