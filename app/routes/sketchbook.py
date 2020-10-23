@@ -12,7 +12,6 @@ def getBasicSketchbooks():
     sketchbooks = Sketchbook.query.order_by(Sketchbook.timestamp).all()
     sketchbooks.reverse()
     sketchbookList = list()
-    # i = 1
     for book in sketchbooks:
         sketchbookDict = dict()
         sketchbookDict[book.id] = {"owner_id": book.owner_id,
@@ -21,7 +20,6 @@ def getBasicSketchbooks():
                                    "title": book.title,
                                    "timestamp": str(book.timestamp)}
         sketchbookList.append(sketchbookDict)
-        # i += 1
 
     follows = Follow.query.all()
     followList = []
