@@ -20,3 +20,15 @@ def getChatMessages():
             'timestamp': chat.timestamp
         }
     return returnDict
+
+
+@bp.route("/chatmessages", methods=["POST"])
+@token_required
+def addChatMessage(current_user, chatbody):
+    newChatMessage = ChatMessage(
+        body=chatbody,
+        user_id=current_user.id,
+        timestamp=datetime.now()
+    )
+    db.session.add(newChatMessage)
+    db.session.commit()
