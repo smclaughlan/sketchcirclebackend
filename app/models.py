@@ -20,6 +20,8 @@ class User(db.Model):
         "Follow", back_populates="followtouser")
 
     usertopost = db.relationship("Post", back_populates="posttouser")
+    usertochatmessage = db.relationship(
+        "ChatMessage", back_populates="chatmessagetouser")
     usertosketchbook = db.relationship(
         "Sketchbook", back_populates="sketchbooktouser")
     userstogoals = db.relationship("Goal", back_populates="goalstousers")
@@ -78,6 +80,28 @@ class Post(db.Model):
             'username': self.posttouser.username,
             'avatar': self.posttouser.avatarurl,
             'sketchbook_id': self.sketchbook_id,
+            'user_id': self.user_id,
+            'timestamp': self.timestamp
+        }
+
+
+class ChatMessage(db.Model):
+    __tablename__ = "chatmessages"
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"),
+                        nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now(),
+                          nullable=False)
+
+    chatmessagetouser = db.relationship(
+        "User", back_populates="usertochatmessage")
+
+    def dictify(self):
+        return {
+            'id': self.id,
+            'body': self.body,
+            'username': self.chatmessagetouser.username,
             'user_id': self.user_id,
             'timestamp': self.timestamp
         }
