@@ -10,7 +10,6 @@ bp = Blueprint("chat", __name__, "")
 @bp.route("/chatmessages")
 def getChatMessages():
     chats = ChatMessage.query.order_by(ChatMessage.timestamp).all()
-    chats.reverse()
     returnDict = dict()
     for chat in chats:
         returnDict[chat.id] = {
