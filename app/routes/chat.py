@@ -23,11 +23,18 @@ def getChatMessages():
 
 @bp.route("/chatmessages", methods=["POST"])
 @token_required
-def addChatMessage(current_user, chatbody):
+def addChatMessage(current_user):
+    data = request.json
     newChatMessage = ChatMessage(
-        body=chatbody,
+        body=data['body'],
+        user_id=current_user.id,
+        timestamp=datetime.now()
+    )
+    chatDict = dict(
+        body=data['body'],
         user_id=current_user.id,
         timestamp=datetime.now()
     )
     db.session.add(newChatMessage)
     db.session.commit()
+    return chatDict
