@@ -36,5 +36,11 @@ def addChatMessage(current_user):
         timestamp=datetime.now()
     )
     db.session.add(newChatMessage)
+
+    allChats = ChatMessage.query.order_by(ChatMessage.timestamp).all()
+    while len(allChats) > 5:
+        chatToDelete = allChats.pop(0)
+        db.session.delete(chatToDelete)
+
     db.session.commit()
     return chatDict
