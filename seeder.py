@@ -154,6 +154,7 @@ with app.app_context():
         username='H_AK',
         hashed_password='pbkdf2:sha256:150000$5cEZurmB$db355487fa715a469c081f7a99c29bd77c1b4303d5418b8bde0118e52795b1ef',
         email='H_AK@email.com',
+        avatarurl='https://i.imgur.com/7AOgDAz.png'
     )
 
     skb3 = Sketchbook(
