@@ -356,7 +356,7 @@ with app.app_context():
         """,
         sketchbook_id=4,
         user_id=4,
-        timestamp=datetime(2020, 6, 15)
+        timestamp=datetime(2020, 6, 16)
     )
     allposts.append(post25)
     post26 = Post(
@@ -366,7 +366,7 @@ with app.app_context():
         """,
         sketchbook_id=4,
         user_id=4,
-        timestamp=datetime(2020, 6, 15)
+        timestamp=datetime(2020, 6, 17)
     )
     allposts.append(post26)
     post27 = Post(
@@ -376,7 +376,7 @@ with app.app_context():
         """,
         sketchbook_id=4,
         user_id=4,
-        timestamp=datetime(2020, 6, 15)
+        timestamp=datetime(2020, 6, 18)
     )
     allposts.append(post27)
     post28 = Post(
@@ -386,7 +386,7 @@ with app.app_context():
         """,
         sketchbook_id=4,
         user_id=4,
-        timestamp=datetime(2020, 6, 15)
+        timestamp=datetime(2020, 6, 19)
     )
     allposts.append(post28)
     post29 = Post(
@@ -397,7 +397,7 @@ with app.app_context():
         """,
         sketchbook_id=4,
         user_id=4,
-        timestamp=datetime(2020, 6, 15)
+        timestamp=datetime(2020, 6, 20)
     )
     allposts.append(post29)
 
