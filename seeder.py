@@ -323,12 +323,94 @@ with app.app_context():
 
     # end hak seed data
 
+    # 'PaintsALot' seed data
+    user4 = User(
+        username='PaintsALot',
+        hashed_password='pbkdf2:sha256:150000$5cEZurmB$db355487fa715a469c081f7a99c29bd77c1b4303d5418b8bde0118e52795b1ef',
+        email='PaintsALot@email.com',
+        avatarurl='https://i.imgur.com/7XijiZM.jpg'
+    )
+
+    skb4 = Sketchbook(
+        owner_id=4,
+        title='PaintsALot\'s sketchbook'
+    )
+
+    post24 = Post(
+        body="""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem sed risus ultricies tristique nulla aliquet. Faucibus et molestie ac feugiat sed. Congue quisque egestas diam in arcu. Volutpat est velit egestas dui. Sit amet consectetur adipiscing elit pellentesque habitant.
+
+![](https://i.imgur.com/7XijiZM.jpg)
+        """,
+        sketchbook_id=4,
+        user_id=4,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post24)
+    post25 = Post(
+        body="""Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Dui accumsan sit amet nulla facilisi morbi tempus. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
+
+![](https://i.imgur.com/dmdKaFi.jpg)
+![](https://i.imgur.com/zVcaZQA.jpg)
+![](https://i.imgur.com/KJHGhLU.jpg)
+![](https://i.imgur.com/BbQi23x.jpg)
+        """,
+        sketchbook_id=4,
+        user_id=4,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post25)
+    post26 = Post(
+        body="""Viverra justo nec ultrices dui sapien eget. Ultrices in iaculis nunc sed augue lacus viverra vitae. Amet purus gravida quis blandit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean.
+
+![](https://i.imgur.com/hA6WgOf.jpg)
+        """,
+        sketchbook_id=4,
+        user_id=4,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post26)
+    post27 = Post(
+        body="""Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing. Nunc eget lorem dolor sed viverra. Vulputate odio ut enim blandit. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+
+![](https://i.imgur.com/Mfb65w4.jpg)
+        """,
+        sketchbook_id=4,
+        user_id=4,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post27)
+    post28 = Post(
+        body="""Id porta nibh venenatis cras sed felis eget. Integer feugiat scelerisque varius morbi enim. Quis hendrerit dolor magna eget est lorem ipsum. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.
+
+![](https://i.imgur.com/aVeYR9Z.jpg)
+        """,
+        sketchbook_id=4,
+        user_id=4,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post28)
+    post29 = Post(
+        body="""Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.
+
+![](https://i.imgur.com/Ulu1IVM.jpg)
+![](https://i.imgur.com/xJXJ7Qq.jpg)
+        """,
+        sketchbook_id=4,
+        user_id=4,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post29)
+
+    # end 'PaintsALot' seed data
+
     db.session.add(user1)
     db.session.add(skb1)
     db.session.add(user2)
     db.session.add(skb2)
     db.session.add(user3)
     db.session.add(skb3)
+    db.session.add(user4)
+    db.session.add(skb4)
 
     for p in allposts:
         db.session.add(p)
