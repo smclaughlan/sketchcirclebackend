@@ -489,6 +489,273 @@ with app.app_context():
 
     # end profile5 seed data
 
+    # 'somanycats'/profile6 seed data
+    user6 = User(
+        username='somanycats',
+        hashed_password='pbkdf2:sha256:150000$5cEZurmB$db355487fa715a469c081f7a99c29bd77c1b4303d5418b8bde0118e52795b1ef',
+        email='somanycats@email.com',
+        avatarurl='https://i.imgur.com/PyLdS4H.jpg'
+    )
+
+    skb6 = Sketchbook(
+        owner_id=6,
+        title='somanycats\'s sketchbook'
+    )
+
+    post36 = Post(
+        body="""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem sed risus ultricies tristique nulla aliquet. Faucibus et molestie ac feugiat sed. Congue quisque egestas diam in arcu. Volutpat est velit egestas dui. Sit amet consectetur adipiscing elit pellentesque habitant.
+
+![](https://i.imgur.com/t0KPxeF.jpg)
+        """,
+        sketchbook_id=6,
+        user_id=6,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post36)
+
+    post37 = Post(
+        body="""Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Dui accumsan sit amet nulla facilisi morbi tempus. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
+
+![](https://i.imgur.com/vf75ekS.jpg)
+        """,
+        sketchbook_id=6,
+        user_id=6,
+        timestamp=datetime(2020, 6, 16)
+    )
+    allposts.append(post37)
+
+    post38 = Post(
+        body="""Viverra justo nec ultrices dui sapien eget. Ultrices in iaculis nunc sed augue lacus viverra vitae. Amet purus gravida quis blandit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean.
+
+![](https://i.imgur.com/PyLdS4H.jpg)
+        """,
+        sketchbook_id=6,
+        user_id=6,
+        timestamp=datetime(2020, 6, 17)
+    )
+    allposts.append(post38)
+
+    post39 = Post(
+        body="""Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing. Nunc eget lorem dolor sed viverra. Vulputate odio ut enim blandit. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+
+![](https://i.imgur.com/l8RSkOT.jpg)
+![](https://i.imgur.com/aGsMXxf.jpg)
+        """,
+        sketchbook_id=6,
+        user_id=6,
+        timestamp=datetime(2020, 6, 18)
+    )
+    allposts.append(post39)
+
+    post40 = Post(
+        body="""Id porta nibh venenatis cras sed felis eget. Integer feugiat scelerisque varius morbi enim. Quis hendrerit dolor magna eget est lorem ipsum. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.
+
+![](https://i.imgur.com/7eObr0D.jpg)
+![](https://i.imgur.com/Z4HN6S2.jpg)
+![](https://i.imgur.com/eMQJFro.jpg)
+        """,
+        sketchbook_id=6,
+        user_id=6,
+        timestamp=datetime(2020, 6, 19)
+    )
+    allposts.append(post40)
+
+    post41 = Post(
+        body="""Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.
+
+![](https://i.imgur.com/ik0MlC8.jpg)
+![](https://i.imgur.com/iNkhWHJ.jpg)
+![](https://i.imgur.com/QJOqWHU.jpg)
+![](https://i.imgur.com/iC82kFu.jpg)
+![](https://i.imgur.com/bxRrtzX.jpg)
+![](https://i.imgur.com/wZfztSf.jpg)
+![](https://i.imgur.com/xKiVrYG.jpg)
+        """,
+        sketchbook_id=6,
+        user_id=6,
+        timestamp=datetime(2020, 6, 20)
+    )
+    allposts.append(post41)
+
+    # end profile6 seed data
+
+    # 'blueOcean'/profile7 seed data
+    user7 = User(
+        username='blueOcean',
+        hashed_password='pbkdf2:sha256:150000$5cEZurmB$db355487fa715a469c081f7a99c29bd77c1b4303d5418b8bde0118e52795b1ef',
+        email='blueOcean@email.com',
+        avatarurl='https://i.imgur.com/VzMk7LF.jpg'
+    )
+
+    skb7 = Sketchbook(
+        owner_id=7,
+        title='blueOcean\'s sketchbook'
+    )
+
+    post42 = Post(
+        body="""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem sed risus ultricies tristique nulla aliquet. Faucibus et molestie ac feugiat sed. Congue quisque egestas diam in arcu. Volutpat est velit egestas dui. Sit amet consectetur adipiscing elit pellentesque habitant.
+
+![](https://i.imgur.com/rTQUOuW.jpg)
+![](https://i.imgur.com/NfPujFP.jpg)
+        """,
+        sketchbook_id=7,
+        user_id=7,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post42)
+
+    post43 = Post(
+        body="""Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Dui accumsan sit amet nulla facilisi morbi tempus. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
+
+![](https://i.imgur.com/ycIw7Aa.jpg)
+![](https://i.imgur.com/9QY1Ctj.jpg)
+        """,
+        sketchbook_id=7,
+        user_id=7,
+        timestamp=datetime(2020, 6, 16)
+    )
+    allposts.append(post43)
+
+    post44 = Post(
+        body="""Viverra justo nec ultrices dui sapien eget. Ultrices in iaculis nunc sed augue lacus viverra vitae. Amet purus gravida quis blandit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean.
+
+![](https://i.imgur.com/jTs6IsT.jpg)
+![](https://i.imgur.com/cMUM5hV.jpg)
+        """,
+        sketchbook_id=7,
+        user_id=7,
+        timestamp=datetime(2020, 6, 17)
+    )
+    allposts.append(post44)
+
+    post45 = Post(
+        body="""Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing. Nunc eget lorem dolor sed viverra. Vulputate odio ut enim blandit. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+
+![](https://i.imgur.com/l8RSkOT.jpg)
+![](https://i.imgur.com/aGsMXxf.jpg)
+![](https://i.imgur.com/7FVBEL5.jpg)
+        """,
+        sketchbook_id=7,
+        user_id=7,
+        timestamp=datetime(2020, 6, 18)
+    )
+    allposts.append(post45)
+
+    post46 = Post(
+        body="""Id porta nibh venenatis cras sed felis eget. Integer feugiat scelerisque varius morbi enim. Quis hendrerit dolor magna eget est lorem ipsum. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.
+
+![](https://i.imgur.com/7eObr0D.jpg)
+![](https://i.imgur.com/Z4HN6S2.jpg)
+![](https://i.imgur.com/eMQJFro.jpg)
+![](https://i.imgur.com/tra7eyT.jpg)
+        """,
+        sketchbook_id=7,
+        user_id=7,
+        timestamp=datetime(2020, 6, 19)
+    )
+    allposts.append(post46)
+
+    post47 = Post(
+        body="""Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.
+
+![](https://i.imgur.com/v0Ys7JB.jpg)
+![](https://i.imgur.com/T4yGjze.jpg)
+        """,
+        sketchbook_id=7,
+        user_id=7,
+        timestamp=datetime(2020, 6, 20)
+    )
+    allposts.append(post47)
+
+    # end profile7 seed data
+
+    # 'Anna'/profile8 seed data
+    user8 = User(
+        username='Anna',
+        hashed_password='pbkdf2:sha256:150000$5cEZurmB$db355487fa715a469c081f7a99c29bd77c1b4303d5418b8bde0118e52795b1ef',
+        email='Anna@email.com',
+        avatarurl='https://i.imgur.com/d0DU3Xz.jpg'
+    )
+
+    skb8 = Sketchbook(
+        owner_id=8,
+        title='Anna\'s sketchbook'
+    )
+
+    post48 = Post(
+        body="""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem sed risus ultricies tristique nulla aliquet. Faucibus et molestie ac feugiat sed. Congue quisque egestas diam in arcu. Volutpat est velit egestas dui. Sit amet consectetur adipiscing elit pellentesque habitant.
+
+![](https://i.imgur.com/d0DU3Xz.jpg)
+![](https://i.imgur.com/Cqr3Rzo.jpg)
+        """,
+        sketchbook_id=8,
+        user_id=8,
+        timestamp=datetime(2020, 6, 15)
+    )
+    allposts.append(post48)
+
+    post49 = Post(
+        body="""Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Dui accumsan sit amet nulla facilisi morbi tempus. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.
+
+![](https://i.imgur.com/beYE9Rz.jpg)
+![](https://i.imgur.com/UoFbkIK.jpg)
+        """,
+        sketchbook_id=8,
+        user_id=8,
+        timestamp=datetime(2020, 6, 16)
+    )
+    allposts.append(post49)
+
+    post50 = Post(
+        body="""Viverra justo nec ultrices dui sapien eget. Ultrices in iaculis nunc sed augue lacus viverra vitae. Amet purus gravida quis blandit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean.
+
+![](https://i.imgur.com/HGR6Y8a.jpg)
+![](https://i.imgur.com/W7SDc4Y.jpg)
+        """,
+        sketchbook_id=8,
+        user_id=8,
+        timestamp=datetime(2020, 6, 17)
+    )
+    allposts.append(post50)
+
+    post51 = Post(
+        body="""Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing. Nunc eget lorem dolor sed viverra. Vulputate odio ut enim blandit. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+
+![](https://i.imgur.com/KeVaedB.jpg)
+![](https://i.imgur.com/XmNPuRg.jpg)
+        """,
+        sketchbook_id=8,
+        user_id=8,
+        timestamp=datetime(2020, 6, 18)
+    )
+    allposts.append(post51)
+
+    post52 = Post(
+        body="""Id porta nibh venenatis cras sed felis eget. Integer feugiat scelerisque varius morbi enim. Quis hendrerit dolor magna eget est lorem ipsum. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.
+
+![](https://i.imgur.com/l5tdOiT.jpg)
+![](https://i.imgur.com/I4iyG5e.jpg)
+        """,
+        sketchbook_id=8,
+        user_id=8,
+        timestamp=datetime(2020, 6, 19)
+    )
+    allposts.append(post52)
+
+    post53 = Post(
+        body="""Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.
+
+![](https://i.imgur.com/o5k6k3r.jpg)
+![](https://i.imgur.com/7Y5vETR.jpg)
+        """,
+        sketchbook_id=8,
+        user_id=8,
+        timestamp=datetime(2020, 6, 20)
+    )
+    allposts.append(post53)
+
+    # end profile8 seed data
+
     db.session.add(user1)
     db.session.add(skb1)
     db.session.add(user2)
@@ -499,6 +766,12 @@ with app.app_context():
     db.session.add(skb4)
     db.session.add(user5)
     db.session.add(skb5)
+    db.session.add(user6)
+    db.session.add(skb6)
+    db.session.add(user7)
+    db.session.add(skb7)
+    db.session.add(user8)
+    db.session.add(skb8)
 
     for p in allposts:
         db.session.add(p)
