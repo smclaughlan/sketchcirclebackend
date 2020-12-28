@@ -659,6 +659,7 @@ with app.app_context():
         body="""Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.
 
 ![](https://i.imgur.com/v0Ys7JB.jpg)
+
 ![](https://i.imgur.com/T4yGjze.jpg)
         """,
         sketchbook_id=7,
