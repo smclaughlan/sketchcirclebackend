@@ -126,23 +126,6 @@ def addPost(current_user, sk_id):
     skb = Sketchbook.query.filter(Sketchbook.id == sk_id).first()
     skb.timestamp = datetime.now()
     db.session.commit()
-
-    # retPost = {
-    #     'posts': {
-    #         sk_id: {
-    #             newPost.id: {
-    #                 'id': newPost.id,
-    #                 'user_id': current_user.id,
-    #                 'username': current_user.username,
-    #                 'avatar': current_user.avatarurl,
-    #                 'sketchbook_id': sk_id,
-    #                 'body': data['msgBody'],
-    #                 'timestamp': newPost.timestamp,
-    #             }
-    #         }
-    #     }
-    # }
-    # return retPost
     return getSketchbookPosts(sk_id)
 
 
