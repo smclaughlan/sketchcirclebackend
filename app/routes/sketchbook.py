@@ -6,6 +6,8 @@ from datetime import datetime
 
 bp = Blueprint("sketchbook", __name__, "")
 
+# TODO Separate follows from getting sketchbooks
+
 
 @bp.route("/sketchbooks")
 def getBasicSketchbooks():
@@ -76,6 +78,8 @@ def deleteFollow(current_user, sk_id):
     db.session.commit()
     return {"sketchbook_id": followToDelete.sketchbook_id}
 
+# TODO Separate goals w/ datapoints route
+
 
 @bp.route("/sketchbooks/<int:sk_id>")
 def getSketchbookPosts(sk_id):
@@ -127,6 +131,8 @@ def addPost(current_user, sk_id):
     skb.timestamp = datetime.now()
     db.session.commit()
     return getSketchbookPosts(sk_id)
+
+# TODO move past goal deleting to separate function
 
 
 @bp.route("/goal", methods=["POST"])

@@ -9,6 +9,8 @@ from datetime import datetime
 
 bp = Blueprint('user', __name__, url_prefix='')
 
+# TODO move creation of user's sketchbook to separate function
+
 
 @bp.route('/users', methods=['POST'])
 def registration():

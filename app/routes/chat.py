@@ -6,6 +6,8 @@ from datetime import datetime
 
 bp = Blueprint("chat", __name__, "")
 
+# TODO delete all chat related code or implement chat
+
 
 @bp.route("/chatmessages")
 def getChatMessages():
